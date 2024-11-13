@@ -1,0 +1,2 @@
+mvsim
+-DProtobuf_PROTOC_EXECUTABLE=/usr/bin/protoc -DCATKIN_DEVEL_PREFIX=/home/swaminathan/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/swaminathan/catkin_ws/install -G Unix Makefiles
