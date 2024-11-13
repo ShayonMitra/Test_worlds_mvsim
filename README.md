@@ -20,7 +20,7 @@ sudo apt install \
   pybind11-dev \
   libprotobuf-dev \
   libpython3-dev
-catkin_make -DProtobuf_PROTOC_EXECUTABLE=/usr/bin/protoc - DPYTHON_EXECUTABLE=/usr/bin/python3
+catkin_make -DProtobuf_PROTOC_EXECUTABLE=/usr/bin/protoc -DPYTHON_EXECUTABLE=/usr/bin/python3
 source devel/setup.bash
 roslaunch mvsim demo_warehouse.launch
 ```
