@@ -1,6 +1,8 @@
 # mvsim_ros_noetic
 mvsim + ros 1 with no bugs
 
+The following steps assume that you have ros-noetic installed and set-up.
+
 **To setup, do the following:**
 ```bash
 sudo apt remove ros-<distro>-mvsim # removes the current mvsim package
