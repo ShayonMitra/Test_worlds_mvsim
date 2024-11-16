@@ -23,7 +23,7 @@ sudo apt install \
   libprotobuf-dev \
   libpython3-dev
 catkin config -DProtobuf_PROTOC_EXECUTABLE=/usr/bin/protoc -DPYTHON_EXECUTABLE=/usr/bin/python3
-catkin build
+catkin build -j4
 source devel/setup.bash
 roslaunch mvsim demo_warehouse.launch
 ```
