@@ -9,6 +9,8 @@
     <vert_nrays>32</vert_nrays>
     <vertical_ray_angles>-55.020 -52.081 -49.142 -46.204 -43.265 -40.326 -37.387 -34.449 -31.510 -28.571 -25.632 -22.694 -19.755 -16.816 -13.877 -10.939 -8.000 -6.667 -5.333 -4.000 -2.667 -1.333  0.000 1.333 2.667 4.000 5.333 6.667 8.754 10.841 12.929 15</vertical_ray_angles>
 
+    <!-- <horz_fov_degrees></horz_fov_degrees>  -->
+
     <!-- Horizontal / azimuth angular resolution:
         The rotation of the Helios sensor configurable: 5 / 10 / 20 Hz
         Firing timing of the sensor is fixed at 55.296 μs (=18.084 kHz).

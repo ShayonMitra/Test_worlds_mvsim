@@ -107,7 +107,7 @@
 		   Vehicle(s) definition
 	     ======================== -->
 	<vehicle name="r1" class="jackal">
-		<init_pose>0 0 0</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+		<init_pose>0 0 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
 	</vehicle>
 
 	<!-- ======================================
@@ -233,7 +233,7 @@
 	
 <!--	<block class="my_bump"> <init_pose>4 0 90</init_pose> </block> -->
 
-	<block class="pallet_jack"> 
+	<!-- <block class="pallet_jack"> 
 		<init_pose>0 0 0</init_pose>
 		<animation type="keyframes">
 			<time_pose>0.0  -13 -3  0</time_pose>
@@ -244,7 +244,7 @@
 			<time_pose>25.0  -13 -3 180</time_pose>
 			<time_pose>26.0  -13 -3 0</time_pose>
 		</animation>
-	</block>
+	</block> -->
 
 
 	<block class="stairs"> <init_pose>-12 -11.5 -90</init_pose> </block>

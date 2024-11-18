@@ -1,5 +1,5 @@
 <sensor class="lidar3d" name="${sensor_name|lidar1}">
-    <pose_3d> ${sensor_x|0.5}  ${sensor_y|0.0}  ${sensor_z|0.7}  ${sensor_yaw|0.0} ${sensor_pitch|0.0} ${sensor_roll|0.0}</pose_3d>
+    <pose_3d> ${sensor_x|0.5}  ${sensor_y|0.0}  ${sensor_z|1.0}  ${sensor_yaw|0.0} ${sensor_pitch|0.0} ${sensor_roll|0.0}</pose_3d>
 
     <!-- vert_fov_degrees: If defined, a symmetric vertical FOV is used.
          The alternative is using a custom list of angles in "vertical_ray_angles"
@@ -7,7 +7,9 @@
     <!-- <vert_fov_degrees>${vert_fov_degrees|70}</vert_fov_degrees> -->
 
     <vert_nrays>32</vert_nrays>
-    <vertical_ray_angles>15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 -1 -2 -3 -4 -5 -6 -7 -8 -9 -10 -11 -12 -13 -14 -15 -16</vertical_ray_angles>
+    <vertical_ray_angles>31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0</vertical_ray_angles>
+
+    <!-- <horz_fov_degrees>120</horz_fov_degrees> -->
 
     <!-- Horizontal / azimuth angular resolution:
         The rotation of the Helios sensor configurable: 5 / 10 / 20 Hz
@@ -28,8 +30,8 @@
     <max_horz_relative_depth_to_interpolatate>${max_horz_relative_depth_to_interpolatate|0.1}</max_horz_relative_depth_to_interpolatate>
 
     <range_std_noise>${sensor_std_noise|0.005}</range_std_noise>
-    <min_range>${min_range|0.20}</min_range>
-    <max_range>${max_range|110.0}</max_range>
+    <min_range>${min_range|0.1}</min_range>
+    <max_range>${max_range|40.0}</max_range>
     
     <visual> <model_uri>${MVSIM_CURRENT_FILE_DIRECTORY}/../models/velodyne-vlp16.dae</model_uri> <model_roll>90</model_roll> </visual>
 

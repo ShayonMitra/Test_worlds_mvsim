@@ -45,9 +45,19 @@
         <!-- Sensors -->
         <include file="../definitions/rplidar-a2.sensor.xml"
             raytrace_3d="true"
-            sensor_x="-0.032" sensor_z="0.171" sensor_yaw="0" sensor_name="laser1" 
+            sensor_x="-0.032" sensor_z="0.171" sensor_yaw="0" sensor_name="scanner1" 
             sensor_hz="10.0"
         />
+
+        <include file="helios-32-FOV-31.sensor.xml"
+        sensor_x="0.15" sensor_z="$f{0.27 + 0.08}"
+        sensor_std_noise="0.0025"
+        sensor_publish="false"
+        sensor_name="lidar1"
+        sensor_rate="10.0"
+        horz_resolution_factor="1.5"
+        vert_resolution_factor="1.0"
+      />
 
         <include file="../definitions/camera.sensor.xml"
             sensor_x="0.069" sensor_y="-0.047" sensor_z="0.107"
