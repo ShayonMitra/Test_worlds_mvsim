@@ -5,7 +5,7 @@ The following steps assume that you have ros-noetic installed and set-up.
 
 **To setup, do the following:**
 ```bash
-sudo apt remove ros-<distro>-mvsim # removes the current mvsim package
+sudo apt remove ros-noetic-mvsim # removes the current mvsim package
 source /opt/ros/noetic/setup.bash
 git clone https://github.com/YoWassup69/mvsim_ros_noetic.git
 cd mvsim_ros_noetic/catkin_ws
@@ -22,7 +22,8 @@ sudo apt install \
   pybind11-dev \
   libprotobuf-dev \
   libpython3-dev
-catkin_make -DProtobuf_PROTOC_EXECUTABLE=/usr/bin/protoc -DPYTHON_EXECUTABLE=/usr/bin/python3
+catkin config -DProtobuf_PROTOC_EXECUTABLE=/usr/bin/protoc -DPYTHON_EXECUTABLE=/usr/bin/python3
+catkin build -j4
 source devel/setup.bash
 roslaunch mvsim demo_warehouse.launch
 ```
