@@ -16,18 +16,58 @@
 	<lights>
 	</lights>
 
+	<variable name="CEILING_HEIGHT" value="6.0"></variable>
 	<!-- ========================
 		   Scenario definition
 	     ======================== -->
 	<!-- ground -->
 	<element class="horizontal_plane">
 		<cull_face>BACK</cull_face>
-		<x_min>-20</x_min>
-		<y_min>-20</y_min>
-		<x_max> 20</x_max>
-		<y_max> 20</y_max>
+		<x_min>-14</x_min>
+		<y_min>-14</y_min>
+		<x_max> 14</x_max>
+		<y_max> 14</y_max>
 		<z>0.0</z>
 	</element>
+
+	<!-- perimeter walls: -->
+	<element class="vertical_plane">
+		<cull_face>FRONT</cull_face>
+		<x0>-14</x0> <y0>14</y0>
+		<x1>-14</x1> <y1>-14</y1>
+		<z>0.0</z> <height>$f{CEILING_HEIGHT}</height>
+		<texture>https://mrpt.github.io/mvsim-models/textures-cgbookcase/wall-bricks-01.png</texture>
+		<texture_size_x>3.0</texture_size_x>
+		<texture_size_y>3.0</texture_size_y>
+	</element>
+	<element class="vertical_plane">
+		<cull_face>FRONT</cull_face>
+		<x0> 14</x0> <y0>14</y0>
+		<x1>-14</x1> <y1>14</y1>
+		<z>0.0</z> <height>$f{CEILING_HEIGHT}</height>
+		<texture>https://mrpt.github.io/mvsim-models/textures-cgbookcase/wall-bricks-01.png</texture>
+		<texture_size_x>3.0</texture_size_x>
+		<texture_size_y>3.0</texture_size_y>
+	</element>
+	<element class="vertical_plane">
+		<cull_face>FRONT</cull_face>
+		<x0> 14</x0> <y0>-14</y0>
+		<x1> 14</x1> <y1>14</y1>
+		<z>0.0</z> <height>$f{CEILING_HEIGHT}</height>
+		<texture>https://mrpt.github.io/mvsim-models/textures-cgbookcase/wall-bricks-01.png</texture>
+		<texture_size_x>3.0</texture_size_x>
+		<texture_size_y>3.0</texture_size_y>
+	</element>
+	<element class="vertical_plane">
+		<cull_face>FRONT</cull_face>
+		<x0>-14</x0> <y0>-14</y0>
+		<x1> 14</x1> <y1>-14</y1>
+		<z>0.0</z> <height>$f{CEILING_HEIGHT}</height>
+		<texture>https://mrpt.github.io/mvsim-models/textures-cgbookcase/wall-bricks-01.png</texture>
+		<texture_size_x>3.0</texture_size_x>
+		<texture_size_y>3.0</texture_size_y>
+	</element>
+
 
 	<!-- =============================
 		   Vehicle classes definition
@@ -47,17 +87,7 @@
 		</publish>
 
 		<!-- Sensors -->
-		<include file="../definitions/lidar2d.sensor.xml" 
-		  sensor_x="0.5" sensor_y="0" sensor_z="0.70" sensor_yaw="0" sensor_name="laser1" raytrace_3d="true" 
-		  sensor_period_sec="0.10" 
-		/>
-
-		<include file="../definitions/rgbd_camera.sensor.xml" 
-		  sensor_x="0.6"  sensor_y="0" sensor_z="0.65"
-		  sensor_period_sec="0.10"
-		  show_3d_pointcloud="true"
-		/>
-
+		
 	</vehicle>
 
 	<!-- ======================================
@@ -76,6 +106,7 @@
 		</shape>
 	</block:class>
 
+	
 
 	<block:class name="nurse_station">
 		<static>true</static> <!-- Does not move -->
@@ -88,19 +119,351 @@
 		</visual>
 	</block:class>
 
+	<block:class name="office_chair">
+		<static>true</static> <!-- Does not move -->
+		<color>#0080ff</color>
+		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+		<!--  Custom visualization model -->
+		<!-- 3D model filename to load (local or remote http://uri ) -->
+		<visual>
+		<model_roll>90.0</model_roll>
+			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/OfficeChair/officechair.dae </model_uri>
+		</visual>
+	</block:class>
+
+	<block:class name="office_desk">
+		<static>true</static> <!-- Does not move -->
+		<color>#0080ff</color>
+		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+		<!--  Custom visualization model -->
+		<!-- 3D model filename to load (local or remote http://uri ) -->
+		<visual>
+		<model_roll>90.0</model_roll>
+			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/OfficeDesk/desk.dae</model_uri>
+		</visual>
+	</block:class>
+
+	<block:class name="waste_basket">
+		<static>true</static> <!-- Does not move -->
+		<color>#0080ff</color>
+		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+		<!--  Custom visualization model -->
+		<!-- 3D model filename to load (local or remote http://uri ) -->
+		<visual>
+		<model_roll>90.0</model_roll>
+			<model_uri>https://mrpt.github.io/mvsim-models/waste_basket.zip/waste_basket/wastebasket.dae</model_uri>
+		</visual>
+	</block:class>
+
+	<!--standing person -->
+	<block:class name="person">
+		
+		<color>#0080ff</color>
+		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+		<!--  Custom visualization model -->
+		<!-- 3D model filename to load (local or remote http://uri ) -->
+		<visual>
+		<model_roll>90.0</model_roll>
+			<model_uri>https://mrpt.github.io/mvsim-models/person_standing.zip/person_standing/person_standing.dae</model_uri>
+		</visual>
+	</block:class>
+
+	<!--Fire extinguisher-->
+	<block:class name="extinguisher">
+		<static>true</static> <!-- Does not move -->
+		<mass>2</mass> <ground_friction>1</ground_friction>
+		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
+		<visual>
+			<model_uri>https://mrpt.github.io/mvsim-models/extinguisher.zip/extinguisher/extinguisher.dae</model_uri>
+			<model_roll>90.0</model_roll>
+		</visual>
+	</block:class>
+
+	<block:class name="refrigerator">
+		<static>true</static> <!-- Does not move -->
+		<mass>2</mass> <ground_friction>1</ground_friction>
+		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
+		<visual>
+			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/Refrigerator/fridge.dae</model_uri>
+			<model_roll>90.0</model_roll>
+		</visual>
+	</block:class>
+
+	<block:class name="DiningTable">
+		<static>true</static> <!-- Does not move -->
+		<mass>2</mass> <ground_friction>1</ground_friction>
+		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
+		<visual>
+			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/DiningTable/diningtable.dae</model_uri>
+			<model_roll>90.0</model_roll>
+		</visual>
+	</block:class>
+
+	 <block:class name="stairs">
+ <static>true</static> <!-- Does not move -->
+ <zmin>0.0</zmin> <zmax>0.5</zmax>
+ <shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+ <!-- Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
+ <visual>
+ <model_uri>https://mrpt.github.io/mvsim-models/metal-stairs.dae</model_uri>
+ <model_offset_z>4.31</model_offset_z>
+ <model_roll>90.0</model_roll>
+ </visual>
+ </block:class>
+
+
+<block:class name="piano">
+		<static>true</static> <!-- Does not move -->
+		<mass>2</mass> <ground_friction>1</ground_friction>
+		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
+		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
+		<visual>
+			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/Piano/piano.dae</model_uri>
+			<model_roll>90.0</model_roll>
+		</visual>
+</block:class>
+
 	<!-- ========================
 		Obstacle blocks
 	     ======================== -->
-	<block class="square_obstacle">
-		<init_pose>6 5 0</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
-		<publish>
-		  <publish_pose_topic>/${NAME}/pose</publish_pose_topic>
-		  <publish_pose_period>50e-3</publish_pose_period>
-		</publish>
+
+<!-- Nurse Stations Placed Near Center -->
+<block class="nurse_station">
+    <init_pose>3 3 -90</init_pose>  <!-- Nurse station 1 near center -->
+</block>
+
+<block class="nurse_station">
+    <init_pose>-4 4 -90</init_pose>  <!-- Nurse station 2 near center -->
+</block>
+
+<!-- Randomly Placed Desks and Chairs within -13 <= x, y <= 13 -->
+
+<!-- Desk-Chair Pair 1 -->
+<block class="office_desk">
+    <init_pose>-8 7 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-6 7 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 2 -->
+<block class="office_desk">
+    <init_pose>10 -6 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>12 -6 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 3 -->
+<block class="office_desk">
+    <init_pose>-10 -11 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-8 -11 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 4 -->
+<block class="office_desk">
+    <init_pose>4 5 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>6 5 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 5 -->
+<block class="office_desk">
+    <init_pose>-5 -3 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-3 -3 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 6 -->
+<block class="office_desk">
+    <init_pose>7 -8 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>9 -8 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 7 -->
+<block class="office_desk">
+    <init_pose>-7 10 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-5 10 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 8 -->
+<block class="office_desk">
+    <init_pose>11 11 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>13 11 0</init_pose>
+</block>
+
+<!-- Additional Desk-Chair Pair 9 -->
+<block class="office_desk">
+    <init_pose>-9 4 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-7 4 0</init_pose>
+</block>
+
+<!-- Additional Desk-Chair Pair 10 -->
+<block class="office_desk">
+    <init_pose>5 -10 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>7 -10 0</init_pose>
+</block>
+
+<!-- Additional Desk-Chair Pair 11 -->
+<block class="office_desk">
+    <init_pose>3 -12 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>5 -12 0</init_pose>
+</block>
+
+<!-- Additional Desk-Chair Pair 12 -->
+<block class="office_desk">
+    <init_pose>-12 3 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-10 3 0</init_pose>
+</block>
+
+<!-- Additional Desk-Chair Pair 13 -->
+<block class="office_desk">
+    <init_pose>0 12 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>2 12 0</init_pose>
+</block>
+
+<block class="office_desk"><init_pose>2 -8 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>4 -8 0</init_pose></block>
+
+<block class="office_desk"><init_pose>-3 9 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>-1 9 0</init_pose></block>
+
+<block class="office_desk"><init_pose>-6 -7 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>-4 -7 0</init_pose></block>
+
+<block class="office_desk"><init_pose>6 3 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>8 3 0</init_pose></block>
+
+<block class="office_desk"><init_pose>-10 6 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>-8 6 0</init_pose></block>
+
+<block class="office_desk"><init_pose>7 9 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>9 9 0</init_pose></block>
+
+<block class="office_desk"><init_pose>-13 -2 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>-11 -2 0</init_pose></block>
+
+<block class="office_desk"><init_pose>12 -9 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>10 -9 0</init_pose></block>
+
+<block class="office_desk"><init_pose>12 5 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>13 7 0</init_pose></block>
+
+<block class="office_desk"><init_pose>10 12 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>11 13 0</init_pose></block>
+
+<block class="office_desk"><init_pose>7 11 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>8 12 0</init_pose></block>
+
+<block class="office_desk"><init_pose>9 13 -90</init_pose><model_offset_z>4.31</model_offset_z></block>
+<block class="office_chair"><init_pose>11 13 0</init_pose></block>
+
+<block class = "person">
+<init_pose>11 10 0</init_pose>
+<animation type="keyframes">
+			<time_pose3d>1.0   -2 2 0 0 0 0</time_pose3d>  <!-- time  x y z yaw pitch roll -->
+			<time_pose3d>2.0   -2 1 0 0 0 0</time_pose3d>
+			<time_pose3d>3.0  -1 1 0 0 0 0</time_pose3d>
+			<time_pose3d>5.0  -2 2 0 0 0 0</time_pose3d>
+			<time_pose3d>8.0  -1 2 0 0 0 0</time_pose3d>
+		</animation>
+</block>
+<!-- Randomly Placed Fire Extinguishers -->
+<block class="extinguisher">
+    <init_pose>10 10 0</init_pose>  <!-- Extinguisher 1 -->
+</block>
+<block class="extinguisher">
+    <init_pose>-12 5 0</init_pose>  <!-- Extinguisher 2 -->
+</block>
+<block class="extinguisher">
+    <init_pose>7 -11 0</init_pose>  <!-- Extinguisher 3 -->
+</block>
+<block class="extinguisher">
+    <init_pose>-4 -13 0</init_pose>  <!-- Extinguisher 4 -->
+</block>
+
+<!-- Randomly Placed Waste Bins -->
+<block class="waste_basket">
+    <init_pose>12 -10 0</init_pose>  <!-- Waste Bin 1 -->
+</block>
+<block class="waste_basket">
+    <init_pose>-9 -9 0</init_pose>  <!-- Waste Bin 2 -->
+</block>
+<block class="waste_basket">
+    <init_pose>5 11 0</init_pose>   <!-- Waste Bin 3 -->
+</block>
+<block class="waste_basket">
+    <init_pose>-13 12 0</init_pose>  <!-- Waste Bin 4 -->
+</block>
+<block class="waste_basket">
+    <init_pose>3 -13 0</init_pose>  <!-- Waste Bin 5 -->
+</block>
+
+<block class="refrigerator">
+    <init_pose>8 -2 0</init_pose>  <!-- Waste Bin 5 -->
+</block>
+
+<block class="DiningTable">
+    <init_pose>1 -11 0</init_pose>  <!-- dining table -->
+</block>
+
+<block class="stairs">
+    <init_pose3d>-11 -11 -10 0 0 0</init_pose3d>  <!-- stairs-->
+</block>
+
+<!--House to get doors and windows-->
+<block class="piano">
+    <init_pose>-10 11 0</init_pose>  <!-- Nurse station 1 near center -->
+</block>
+
+<block class="square_obstacle">
+		<init_pose>13 2 0</init_pose>
+
+		<animation type="keyframes">
+			<time_pose3d>1.0   -2 2 0 0 0 0</time_pose3d>  <!-- time  x y z yaw pitch roll -->
+			<time_pose3d>2.0   -2 1 0 0 0 0</time_pose3d>
+			<time_pose3d>3.0  -1 1 0 0 0 0</time_pose3d>
+			<time_pose3d>5.0  -2 2 0 0 0 0</time_pose3d>
+			<time_pose3d>8.0  -1 2 0 0 0 0</time_pose3d>
+		</animation>
 	</block>
 
-	<block class="nurse_station">
-		<init_pose>10 0 -90</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
-	</block>
+
 
 </mvsim_world>
