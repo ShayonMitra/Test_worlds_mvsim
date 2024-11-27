@@ -24,9 +24,9 @@ def parse_xml_to_json(xml_file):
     return json.dumps(objects_coordinates, indent=4)
 
 #test
-xml_file = 'demo_office1_4bots.world.xml' 
+xml_file = 'demo_warehouse2_4bots.world.xml' 
 json_data = parse_xml_to_json(xml_file)
 
-with open("demo_office1_4bots.json", "w") as outfile:
+with open("demo_warehouse2_4bots.world.json", "w") as outfile:
     outfile.write(json_data)
 print(json_data)
