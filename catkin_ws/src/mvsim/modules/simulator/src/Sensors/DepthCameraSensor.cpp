@@ -16,11 +16,50 @@
 #include <mvsim/Sensors/DepthCameraSensor.h>
 #include <mvsim/VehicleBase.h>
 #include <mvsim/World.h>
-
+	// #include <mrpt/img/CImage.h>
+// #include <mrpt/math/CMatrixFloat.h>
+#include <mrpt/gui/CDisplayWindow.h>
+#include <iostream>
+#include <mrpt/system/filesystem.h>
 #include "xml_utils.h"
+#include <mrpt/img/CImage.h>
 
 using namespace mvsim;
 using namespace rapidxml;
+
+void visualizeDepthImage(const mrpt::math::CMatrixFloat& depthMatrix) {
+    // Get the width and height of the depth matrix
+    size_t width = depthMatrix.cols();
+    size_t height = depthMatrix.rows();
+
+    // Create an empty CImage (grayscale)
+    mrpt::img::CImage depthImage(width, height, mrpt::img::CH_GRAY);
+
+    // Normalize the depth values to the 0-255 range for visualization
+    float min_depth = std::numeric_limits<float>::max();
+    float max_depth = std::numeric_limits<float>::lowest();
+
+    // Find min and max depth values
+    for (size_t y = 0; y < height; ++y) {
+        for (size_t x = 0; x < width; ++x) {
+            float depth = depthMatrix(y, x);
+            if (depth < min_depth) min_depth = depth;
+            if (depth > max_depth) max_depth = depth;
+        }
+    }
+
+    // Normalize depth values and fill the image
+    for (size_t y = 0; y < height; ++y) {
+        for (size_t x = 0; x < width; ++x) {
+            float depth = depthMatrix(y, x);
+            // Normalize depth value to 0-255 range
+            uint8_t pixel_value = static_cast<uint8_t>(255 * (depth - min_depth) / (max_depth - min_depth));
+            depthImage.setPixel(x, y, pixel_value);
+        }
+    }
+
+	depthImage.saveToFile("swami.png");
+}
 
 DepthCameraSensor::DepthCameraSensor(Simulable& parent, const rapidxml::xml_node<char>* root)
 	: SensorBase(parent)
@@ -290,6 +329,12 @@ void DepthCameraSensor::simulateOn3DScene(mrpt::opengl::COpenGLScene& world3DSce
 		viewport->setViewportClipDistances(rgbClipMin_, rgbClipMax_);
 
 		fbo_renderer_rgb_->render_RGB(world3DScene, curObs.intensityImage);
+
+		mrpt::math::CMatrixFloat swami;
+
+		fbo_renderer_rgb_->render_RGBD(world3DScene, curObs.intensityImage, swami);
+
+		visualizeDepthImage(swami);
 
 		curObs.hasIntensityImage = true;
 	}

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- ROS1 launch file. See *.launch.py files for ROS2 launch files -->
 <launch>
-	<arg name="world_file" default="$(find mvsim)/mvsim_tutorial/demo_warehouse1_4bots.world.xml" />
+	<arg name="world_file" default="$(find mvsim)/mvsim_tutorial/demo_warehouse2_4bots.world.xml" />
 
 	<node pkg="mvsim" type="mvsim_node" name="mvsim_simulator" output="screen">
 		<param name="world_file" value="$(arg world_file)"/>

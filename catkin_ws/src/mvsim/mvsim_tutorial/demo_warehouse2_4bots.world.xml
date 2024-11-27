@@ -110,18 +110,6 @@
 		<init_pose>0 0 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
 	</vehicle>
 
-	<vehicle name="r2" class="jackal">
-		<init_pose>0 3 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
-	</vehicle>
-
-	<vehicle name="r3" class="jackal">
-		<init_pose>0 5 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
-	</vehicle>
-
-	<vehicle name="r4" class="jackal">
-		<init_pose>0 7 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
-	</vehicle>
-
 	
  <!-- ======================================
  Object types
