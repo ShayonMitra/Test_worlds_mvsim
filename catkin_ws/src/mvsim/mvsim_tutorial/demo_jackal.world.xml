@@ -40,7 +40,7 @@
 		   Vehicle classes definition
 	     ============================= -->
 	<include file="../definitions/jackal.vehicle.xml"
-		default_sensors="false"
+		default_sensors="true"
 	/>
 
 	<!-- ========================
@@ -57,6 +57,15 @@
 		<include file="../definitions/lidar2d.sensor.xml"
 		  sensor_x="-0.17" sensor_z="0.25" sensor_yaw="180" sensor_name="laser2" 
 		/>
+		  <include file="../definitions/helios-32-FOV-31.sensor.xml"
+        sensor_x="0.15" sensor_z="$f{0.27 + 0.08}"
+        sensor_std_noise="0.0025"
+        sensor_publish="false"
+        sensor_name="lidar1"
+        sensor_rate="10.0"
+        horz_resolution_factor="1.5"
+        vert_resolution_factor="1.0"
+      />
 
 		<include file="../definitions/rgbd_camera.sensor.xml" 
 		  sensor_x="0.22" sensor_z="0.29"
@@ -92,16 +101,5 @@
 	</for>
 	-->
 
-	<block class="square_obstacle">
-		<init_pose>5 1 0</init_pose>
-
-		<animation type="keyframes">
-			<time_pose>0.0  -1  0  30</time_pose>
-			<time_pose>2.0  -1 -1 -10</time_pose>
-			<time_pose>4.0   1 -1 -50</time_pose>
-			<time_pose>4.5   1  1  40</time_pose>
-			<time_pose>5.0  -1  0  30</time_pose>
-		</animation>
-	</block>
 
 </mvsim_world>

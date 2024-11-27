@@ -23,18 +23,18 @@
 	<!-- ground -->
 	<element class="horizontal_plane">
 		<cull_face>BACK</cull_face>
-		<x_min>-16</x_min>
-		<y_min>-16</y_min>
-		<x_max> 16</x_max>
-		<y_max> 16</y_max>
+		<x_min>-26</x_min>
+		<y_min>-26</y_min>
+		<x_max> 26</x_max>
+		<y_max> 26</y_max>
 		<z>0.0</z>
 	</element>
 
 	<!-- perimeter walls: -->
 	<element class="vertical_plane">
 		<cull_face>FRONT</cull_face>
-		<x0>-16</x0> <y0>16</y0>
-		<x1>-16</x1> <y1>-16</y1>
+		<x0>-26</x0> <y0>26</y0>
+		<x1>-26</x1> <y1>-26</y1>
 		<z>0.0</z> <height>$f{CEILING_HEIGHT}</height>
 		<texture>https://mrpt.github.io/mvsim-models/textures-cgbookcase/wall-bricks-01.png</texture>
 		<texture_size_x>3.0</texture_size_x>
@@ -42,8 +42,8 @@
 	</element>
 	<element class="vertical_plane">
 		<cull_face>FRONT</cull_face>
-		<x0> 16</x0> <y0>16</y0>
-		<x1>-16</x1> <y1>16</y1>
+		<x0> 26</x0> <y0>26</y0>
+		<x1>-26</x1> <y1>26</y1>
 		<z>0.0</z> <height>$f{CEILING_HEIGHT}</height>
 		<texture>https://mrpt.github.io/mvsim-models/textures-cgbookcase/wall-bricks-01.png</texture>
 		<texture_size_x>3.0</texture_size_x>
@@ -51,8 +51,8 @@
 	</element>
 	<element class="vertical_plane">
 		<cull_face>FRONT</cull_face>
-		<x0> 16</x0> <y0>-16</y0>
-		<x1> 16</x1> <y1>16</y1>
+		<x0> 26</x0> <y0>-26</y0>
+		<x1> 26</x1> <y1>26</y1>
 		<z>0.0</z> <height>$f{CEILING_HEIGHT}</height>
 		<texture>https://mrpt.github.io/mvsim-models/textures-cgbookcase/wall-bricks-01.png</texture>
 		<texture_size_x>3.0</texture_size_x>
@@ -60,8 +60,8 @@
 	</element>
 	<element class="vertical_plane">
 		<cull_face>FRONT</cull_face>
-		<x0>-16</x0> <y0>-16</y0>
-		<x1> 16</x1> <y1>-16</y1>
+		<x0>-26</x0> <y0>-26</y0>
+		<x1> 26</x1> <y1>-26</y1>
 		<z>0.0</z> <height>$f{CEILING_HEIGHT}</height>
 		<texture>https://mrpt.github.io/mvsim-models/textures-cgbookcase/wall-bricks-01.png</texture>
 		<texture_size_x>3.0</texture_size_x>
@@ -81,6 +81,15 @@
 	     ======================== -->
 	<vehicle name="r1" class="jackal">
 		<init_pose>0 0 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r2" class="jackal">
+		<init_pose>1 0 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r3" class="jackal">
+		<init_pose>0 1 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r4" class="jackal">
+		<init_pose>1 1 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
 	</vehicle>
 
 	<!-- ======================================
@@ -308,19 +317,19 @@
 <!--door works fine-->
 <!--football needs scaling-->
 <block class="door">
-    <init_pose>-15.5 1 -90</init_pose>  <!-- Nurse station 1 near center -->
+    <init_pose>-25.5 1 -90</init_pose>  <!-- Nurse station 1 near center -->
 </block>
 
 <block class="door">
-    <init_pose>15.5 1 90</init_pose>  <!-- Nurse station 1 near center -->
+    <init_pose>25.5 1 90</init_pose>  <!-- Nurse station 1 near center -->
 </block>
 
 <block class="shelfsmall">
-    <init_pose>12.5 1 90</init_pose>  <!-- Nurse station 1 near center -->
+    <init_pose>22.5 5 90</init_pose>  <!-- Nurse station 1 near center -->
 </block>
 
 <block class="shelfsmall">
-    <init_pose>-12.5 1 90</init_pose>  <!-- Nurse station 1 near center -->
+    <init_pose>-22.5 5 90</init_pose>  <!-- Nurse station 1 near center -->
 </block>
 
 <!-- Nurse Stations Placed Near Center -->
@@ -570,6 +579,196 @@
 		</animation>
 	</block>
 
+<block class="sofa">
+    <init_pose>24 24 0</init_pose>
+</block>
+<block class="sofa">
+    <init_pose>-24 24 0</init_pose>
+</block>
+<block class="sofa">
+    <init_pose>24 -24 0</init_pose>
+</block>
+<block class="sofa">
+    <init_pose>-24 -24 0</init_pose>
+</block>
+<block class="sofa">
+    <init_pose>0 -24 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 1 -->
+<block class="office_desk">
+    <init_pose>-20 -18 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-18 -18 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 2 -->
+<block class="office_desk">
+    <init_pose>18 20 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>20 20 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 3 -->
+<block class="office_desk">
+    <init_pose>-15 15 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-13 15 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 4 -->
+<block class="office_desk">
+    <init_pose>12 -16 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>14 -16 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 5 -->
+<block class="office_desk">
+    <init_pose>-10 23 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-8 23 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 6 -->
+<block class="office_desk">
+    <init_pose>22 -8 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>24 -8 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 7 -->
+<block class="office_desk">
+    <init_pose>-5 -22 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-3 -22 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 8 -->
+<block class="office_desk">
+    <init_pose>0 19 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>2 19 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 9 -->
+<block class="office_desk">
+    <init_pose>-18 -10 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-16 -10 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 10 -->
+<block class="office_desk">
+    <init_pose>10 12 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>12 12 0</init_pose>
+</block>
+
+<block class="refrigerator">
+    <init_pose>-22 10 0</init_pose>
+</block>
+<block class="refrigerator">
+    <init_pose>20 -15 0</init_pose>
+</block>
+<block class="refrigerator">
+    <init_pose>5 22 0</init_pose>
+</block>
+<block class="refrigerator">
+    <init_pose>-5 -20 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 1 -->
+<block class="office_desk">
+    <init_pose>-24 -20 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-22 -20 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 2 -->
+<block class="office_desk">
+    <init_pose>23 -22 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>25 -22 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 3 -->
+<block class="office_desk">
+    <init_pose>-18 15 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-16 15 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 4 -->
+<block class="office_desk">
+    <init_pose>19 18 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>21 18 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 5 -->
+<block class="office_desk">
+    <init_pose>0 -24 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>2 -24 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 6 -->
+<block class="office_desk">
+    <init_pose>-20 23 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-18 23 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 7 -->
+<block class="office_desk">
+    <init_pose>15 -18 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>17 -18 0</init_pose>
+</block>
+
+<!-- Desk-Chair Pair 8 -->
+<block class="office_desk">
+    <init_pose>-13 0 -90</init_pose>
+    <model_offset_z>4.31</model_offset_z>
+</block>
+<block class="office_chair">
+    <init_pose>-11 0 0</init_pose>
+</block>
 
 
 </mvsim_world>

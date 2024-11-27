@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Prompt for environment type
+echo "Enter the environment type (office or warehouse):"
+read environment
+
+# Validate environment type
+if [[ "$environment" != "office" && "$environment" != "warehouse" ]]; then
+    echo "Invalid environment type. Please enter 'office' or 'warehouse'."
+    exit 1
+fi
+
 # Prompt for world number
 echo "Enter the world number (1 or 2):"
 read world_number
@@ -20,9 +30,13 @@ if [[ "$bot_number" != "4" && "$bot_number" != "10" && "$bot_number" != "20" ]];
     exit 1
 fi
 
-# Generate the world file path (assuming same directory as the script)
+# Generate the world file path based on the environment type
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-world_file="$script_dir/demo_warehouse${world_number}_${bot_number}bots.world.xml"
+if [[ "$environment" == "office" ]]; then
+    world_file="$script_dir/demo_office${world_number}_${bot_number}bots.world.xml"
+else
+    world_file="$script_dir/demo_warehouse${world_number}_${bot_number}bots.world.xml"
+fi
 
 # Check if the file exists
 if [[ ! -f "$world_file" ]]; then

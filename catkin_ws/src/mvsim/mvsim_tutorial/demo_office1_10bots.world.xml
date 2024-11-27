@@ -82,6 +82,37 @@
 	<vehicle name="r1" class="jackal">
 		<init_pose>0 0 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
 	</vehicle>
+    <vehicle name="r2" class="jackal">
+		<init_pose>1 0 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r3" class="jackal">
+		<init_pose>0 1 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r4" class="jackal">
+		<init_pose>1 1 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+
+    <vehicle name="r5" class="jackal">
+		<init_pose>0 -1 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r6" class="jackal">
+		<init_pose>-1 0 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r7" class="jackal">
+		<init_pose>0 -1 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r8" class="jackal">
+		<init_pose>-1 -1 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+
+    <vehicle name="r9" class="jackal">
+		<init_pose>2 2 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    <vehicle name="r10" class="jackal">
+		<init_pose>2 0 -180</init_pose>  <!-- In global coords: x,y, yaw(deg) -->
+	</vehicle>
+    
+
 
 	<!-- ======================================
 	      Obstacle blocks classes definition
