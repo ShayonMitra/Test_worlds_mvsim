@@ -130,9 +130,7 @@
 		</shape>
 	</block:class>
 
-	
-
-	<block:class name="nurse_station">
+		<block:class name="nurse_station">
 		<static>true</static> <!-- Does not move -->
 		<color>#0080ff</color>
 		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
@@ -151,7 +149,7 @@
 		<!-- 3D model filename to load (local or remote http://uri ) -->
 		<visual>
 		<model_roll>90.0</model_roll>
-			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/OfficeChair/officechair.dae </model_uri>
+			<model_uri>./OfficeChair/officechair.dae </model_uri>
 		</visual>
 	</block:class>
 
@@ -163,7 +161,7 @@
 		<!-- 3D model filename to load (local or remote http://uri ) -->
 		<visual>
 		<model_roll>90.0</model_roll>
-			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/OfficeDesk/desk.dae</model_uri>
+			<model_uri>./OfficeDesk/desk.dae</model_uri>
 		</visual>
 	</block:class>
 
@@ -210,7 +208,7 @@
 		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
 		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
 		<visual>
-			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/Refrigerator/fridge.dae</model_uri>
+			<model_uri>./Refrigerator/fridge.dae</model_uri>
 			<model_roll>90.0</model_roll>
 		</visual>
 	</block:class>
@@ -221,7 +219,7 @@
 		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
 		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
 		<visual>
-			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/DiningTable/diningtable.dae</model_uri>
+			<model_uri>./DiningTable/diningtable.dae</model_uri>
 			<model_roll>90.0</model_roll>
 		</visual>
 	</block:class>
@@ -247,23 +245,13 @@
 		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
 		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
 		<visual>
-			<model_uri>/home/shayon/mvsim_ros_noetic/catkin_ws/src/mvsim/mvsim_tutorial/Piano/piano.dae</model_uri>
+			<model_uri>./Piano/piano.dae</model_uri>
 			<model_roll>90.0</model_roll>
 		</visual>
 </block:class>
 
 
 <!--THese are some test objects-->
-<block:class name="cafe">
-		
-		<mass>2</mass> <ground_friction>1</ground_friction>
-		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
-		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
-		<visual>
-			<model_uri>https://github.com/osrf/gazebo_models/blob/master/cafe/meshes/cafe.dae</model_uri>
-			<model_roll>90.0</model_roll>
-		</visual>
-</block:class>
 
 <block:class name="walker">
 		
@@ -282,21 +270,11 @@
 		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
 		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
 		<visual>
-			<model_uri>/home/shayon/Downloads/sofa.dae</model_uri>
+			<model_uri>./sofa.dae</model_uri>
 			<model_roll>90.0</model_roll>
 		</visual>
 </block:class>
 
-<block:class name="football">
-		
-		<mass>2</mass> <ground_friction>1</ground_friction>
-		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
-		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
-		<visual>
-			<model_uri>/home/shayon/Downloads/Ball DAE.dae</model_uri>
-			<model_roll>90.0</model_roll>
-		</visual>
-</block:class>
 
 <block:class name="door">
 		
@@ -304,18 +282,7 @@
 		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
 		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
 		<visual>
-			<model_uri>/home/shayon/Downloads/dugjmokoercw-Room-Door/Room-Door/Door_Component_BI3.dae</model_uri>
-			<model_roll>90.0</model_roll>
-		</visual>
-</block:class>
-
-<block:class name="plant">
-		
-		<mass>2</mass> <ground_friction>1</ground_friction>
-		<shape_from_visual/> <!-- automatic shape,zmin,zmax from 3D mesh-->
-		<!--  Custom visualization model. 3D model filename to load (local or remote http://uri ) -->
-		<visual>
-			<model_uri>/home/shayon/Downloads/cim59vrioikg-IndoorPotPlant/IndoorPotPlant/indoor plant_02_dae/indoor plant_02.dae</model_uri>
+			<model_uri>./Room-Door/Door_Component_BI3.dae</model_uri>
 			<model_roll>90.0</model_roll>
 		</visual>
 </block:class>
